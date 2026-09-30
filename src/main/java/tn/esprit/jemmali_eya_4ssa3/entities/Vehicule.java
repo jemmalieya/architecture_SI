@@ -1,15 +1,13 @@
 package tn.esprit.jemmali_eya_4ssa3.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,6 +16,12 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 
 public class Vehicule {
+    @ManyToOne
+    Agence ag;
+    @OneToMany(mappedBy = "ve")
+    Set <Reservation> res;
+    @ManyToMany
+    Set <Equipement> equipements;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

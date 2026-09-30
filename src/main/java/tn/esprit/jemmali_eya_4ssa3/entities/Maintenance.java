@@ -14,6 +14,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Maintenance {
+    @ManyToOne
+    Vehicule vehicule;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

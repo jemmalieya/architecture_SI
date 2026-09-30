@@ -1,13 +1,12 @@
 package tn.esprit.jemmali_eya_4ssa3.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,6 +15,10 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Agence {
+    @OneToMany(mappedBy = "a")
+    Set <Employe> emp;
+    @OneToMany(mappedBy = "ag")
+    Set <Vehicule> v;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

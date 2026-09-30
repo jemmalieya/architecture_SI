@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tn.esprit.jemmali_eya_4ssa3.enumerations.ModePaiement;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,6 +15,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Paiement {
+    @ManyToOne
+    Contrat c;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,20 +1,25 @@
 package tn.esprit.jemmali_eya_4ssa3.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import tn.esprit.jemmali_eya_4ssa3.enumerations.StatutReservation;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@ToString
 public class Reservation {
+    @ManyToOne
+    Vehicule vehicule;
+    @ManyToOne
+    Client client;
+    @OneToOne
+    Contrat contrats;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

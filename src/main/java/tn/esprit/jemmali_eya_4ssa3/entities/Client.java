@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -14,6 +15,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Client {
+    @OneToMany(mappedBy = "client")
+    Set <Reservation> reservations;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
